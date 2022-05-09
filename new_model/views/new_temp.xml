@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--form view-->
+    <record id="second_model_form_view" model="ir.ui.view">
+        <field name="name">second.model.form.view</field>
+        <field name="model">second.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="Aditya" string="Aditya">
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="dob"/>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                            <field name="cat_id"/>
+                            <field name="bat_ids" widget="many2many_tags"/>
+                            <field name="file"/>
+                            <field name="write_date"/>
+                        </group>
+
+                    </group>
+                        <separator string="View Results" style="color: green;" col="6"/>
+                    <notebook>
+                        <page string="oredrs">
+                            <group>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="dob"/>
+                                <field name="address"/>
+
+
+                                <field name="cat_id"/>
+                                <field name="bat_ids" widget="many2many_tags"/>
+                                <field name="file"/>
+                                <field name="write_date"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--Tree view-->
+    <record id="second_model_tree_view" model="ir.ui.view">
+        <field name="name">second.model.tree.view</field>
+        <field name="model">second.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="dob"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_second_model" model="ir.actions.act_window">
+        <field name="name">Model Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">second.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Hello please create new record
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_new_root" name="Second Model"/>
+    <menuitem id="menu_new_root_child" name="New Practice" action="action_second_model" parent="menu_new_root"/>
+</odoo>
